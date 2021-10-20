@@ -31,3 +31,7 @@ Build application with react frontend and laravel restful api
    4. update student route created inside the routes
    5. update student function created inside the StudentController
    6. in the frontend, update functionality implemented
+8. Delete the Student from database with laravel api
+   1. create the route to delete the student from database
+   2. create the destroy function inside the StudentControlller to delete the student
+   3. complete the delete functionality of student into frontend
