@@ -20,3 +20,7 @@ Build application with react frontend and laravel restful api
    7. migrate the migration with php artisan migrate
 5. Completed the logic for data insertion into database
    1. completed the handleSubmit function inside react-frontend
+6. Fetch the data from database with laravel api
+   1. create route to fetch all the students from database
+   2. create the index function inside the StudentController
+   3. Create the logic to fetch the data from database via laravel api into the frontend inside Student.js
