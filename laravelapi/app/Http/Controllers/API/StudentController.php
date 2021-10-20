@@ -11,9 +11,9 @@ class StudentController extends Controller
     public function store(Request $request) {
         $student = new Student;
         $student->name = $request->input('name');
-        $student->name = $request->input('course');
-        $student->name = $request->input('email');
-        $student->name = $request->input('phone');
+        $student->course = $request->input('course');
+        $student->email = $request->input('email');
+        $student->phone = $request->input('phone');
         $student->save();
 
         return response()->json([

@@ -18,3 +18,5 @@ Build application with react frontend and laravel restful api
    5. create migration with php artisan make:migration create_students_table and the fields here
    6. create controller with php artisan make:controller API/StudentController and created the save function inside the StudentController
    7. migrate the migration with php artisan migrate
+5. Completed the logic for data insertion into database
+   1. completed the handleSubmit function inside react-frontend
