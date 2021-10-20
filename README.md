@@ -35,3 +35,6 @@ Build application with react frontend and laravel restful api
    1. create the route to delete the student from database
    2. create the destroy function inside the StudentControlller to delete the student
    3. complete the delete functionality of student into frontend
+9. Install Sweet Alert into the frontend
+   1. npm install sweetalert --save
+   2. Integrate the sweet alert into all the screens created on the frontend with the message from backend
