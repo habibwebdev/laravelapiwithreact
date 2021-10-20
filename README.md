@@ -24,3 +24,10 @@ Build application with react frontend and laravel restful api
    1. create route to fetch all the students from database
    2. create the index function inside the StudentController
    3. Create the logic to fetch the data from database via laravel api into the frontend inside Student.js
+7. Edit Student data via laravel api
+   1. create route to fetch one student by id in laravel routes
+   2. create the edit function inside StudentController
+   3. implement the single record fetched from database into the frontend
+   4. update student route created inside the routes
+   5. update student function created inside the StudentController
+   6. in the frontend, update functionality implemented
