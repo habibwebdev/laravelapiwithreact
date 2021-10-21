@@ -9,6 +9,7 @@ export default class EditStudent extends Component {
     course: "",
     email: "",
     phone: "",
+    error_list: [],
   };
 
   async componentDidMount() {
@@ -23,6 +24,14 @@ export default class EditStudent extends Component {
         email: res.data.student.email,
         phone: res.data.student.phone,
       });
+    } else if (res.data.status === 404) {
+      swal({
+        title: "Warning",
+        text: res.data.message,
+        icon: "warning",
+        button: "OK!",
+      });
+      this.props.history.push("/");
     }
   }
 
@@ -35,7 +44,7 @@ export default class EditStudent extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
 
-    document.getElementById("btn-update").disabled = true;
+    // document.getElementById("btn-update").disabled = true;
     document.getElementById("btn-update").innerText = "Updating";
     const id = this.props.match.params.id;
     const res = await axios.put(
@@ -53,8 +62,22 @@ export default class EditStudent extends Component {
         button: "OK!",
       });
 
-      document.getElementById("btn-update").disabled = false;
+      // document.getElementById("btn-update").disabled = false;
       document.getElementById("btn-update").innerText = "Update Student";
+      this.props.history.push("/");
+    } else if (res.data.status === 404) {
+      swal({
+        title: "Warning",
+        text: res.data.message,
+        icon: "warning",
+        button: "OK!",
+      });
+      this.props.history.push("/");
+    } else {
+      // console.log(res.data.validate_err);
+      this.setState({
+        error_list: res.data.validate_err,
+      });
     }
   };
 
@@ -83,6 +106,9 @@ export default class EditStudent extends Component {
                       className="form-control"
                       onChange={this.handleInputChange}
                     />
+                    <span className="text-danger">
+                      {this.state.error_list?.name}
+                    </span>
                   </div>
                   <div className="form-group mb-3">
                     <label>Student Course</label>
@@ -93,6 +119,9 @@ export default class EditStudent extends Component {
                       className="form-control"
                       onChange={this.handleInputChange}
                     />
+                    <span className="text-danger">
+                      {this.state.error_list?.course}
+                    </span>
                   </div>
                   <div className="form-group mb-3">
                     <label>Student Email</label>
@@ -103,6 +132,9 @@ export default class EditStudent extends Component {
                       className="form-control"
                       onChange={this.handleInputChange}
                     />
+                    <span className="text-danger">
+                      {this.state.error_list?.email}
+                    </span>
                   </div>
                   <div className="form-group mb-3">
                     <label>Student Phone</label>
@@ -113,6 +145,9 @@ export default class EditStudent extends Component {
                       className="form-control"
                       onChange={this.handleInputChange}
                     />
+                    <span className="text-danger">
+                      {this.state.error_list?.phone}
+                    </span>
                   </div>
                   <div className="form-group mb-3">
                     <button

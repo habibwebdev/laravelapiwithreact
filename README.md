@@ -38,3 +38,6 @@ Build application with react frontend and laravel restful api
 9. Install Sweet Alert into the frontend
    1. npm install sweetalert --save
    2. Integrate the sweet alert into all the screens created on the frontend with the message from backend
+10. Forms validations from backend
+    1. inside store function of StudentController apply validations
+    2. errors handled inside the frontend

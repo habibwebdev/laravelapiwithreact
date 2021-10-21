@@ -9,6 +9,7 @@ export default class AddStudent extends Component {
     course: "",
     email: "",
     phone: "",
+    error_list: [],
   };
 
   handleInputChange = (e) => {
@@ -35,11 +36,17 @@ export default class AddStudent extends Component {
         button: "OK!",
       });
 
+      this.props.history.push("/");
+
       this.setState({
         name: "",
         course: "",
         email: "",
         phone: "",
+      });
+    } else {
+      this.setState({
+        error_list: res.data.validate_err,
       });
     }
   };
@@ -69,6 +76,9 @@ export default class AddStudent extends Component {
                       className="form-control"
                       onChange={this.handleInputChange}
                     />
+                    <span className="text-danger">
+                      {this.state.error_list.name}
+                    </span>
                   </div>
                   <div className="form-group mb-3">
                     <label>Student Course</label>
@@ -79,6 +89,9 @@ export default class AddStudent extends Component {
                       className="form-control"
                       onChange={this.handleInputChange}
                     />
+                    <span className="text-danger">
+                      {this.state.error_list.course}
+                    </span>
                   </div>
                   <div className="form-group mb-3">
                     <label>Student Email</label>
@@ -89,6 +102,9 @@ export default class AddStudent extends Component {
                       className="form-control"
                       onChange={this.handleInputChange}
                     />
+                    <span className="text-danger">
+                      {this.state.error_list.email}
+                    </span>
                   </div>
                   <div className="form-group mb-3">
                     <label>Student Phone</label>
@@ -99,6 +115,9 @@ export default class AddStudent extends Component {
                       className="form-control"
                       onChange={this.handleInputChange}
                     />
+                    <span className="text-danger">
+                      {this.state.error_list.phone}
+                    </span>
                   </div>
                   <div className="form-group mb-3">
                     <button type="submit" className="btn btn-primary">
